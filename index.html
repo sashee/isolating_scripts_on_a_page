@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<script id="template" type="x-tmpl">
+		<head>
+			<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js'>&lt;/script>
+			<script src='injected.js'>&lt;/script>
+			<script>
+				window.greeterTemplateId='greeter-template';
+			&lt;/script>
+		</head>
+	</script>
+
+	<script id="greeter-template" type="x-tmpl">
+		<p>Your name: <input ng-model="name"></p>
+		Hello {{name}}!
+	</script>
+
+
+	<script>
+		window.onload=function() {
+			var iframe = document.createElement('iframe');
+			var html = document.querySelector("#template").innerHTML.replace(/&lt;/g, '<');
+			iframe.style.visibility = "hidden";
+			iframe.style.width = "1px";
+			iframe.style.height = "1px";
+			iframe.style.position = "absolute";
+			iframe.style.top = "0";
+			iframe.style.left = "0";
+			document.body.appendChild(iframe);
+			iframe.contentWindow.document.open();
+			iframe.contentWindow.document.write(html);
+			iframe.contentWindow.document.close();
+		}
+	</script>
+</head>
+<body>
+	<div ng-controller="MyController">
+		<h2>{{welcome}}</h2>
+		<greeter></greeter>
+	</div>
+</body>
+</html>
