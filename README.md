@@ -1,6 +1,8 @@
 # isolating_scripts_on_a_page
 
-This is a demonstration project for a blog post
+This is a demonstration project for a blog post.
+
+For a live demo, click [here](http://sashee.github.io/isolating_scripts_on_a_page/)
 
 ## Usage
 
