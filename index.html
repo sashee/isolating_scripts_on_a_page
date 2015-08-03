@@ -18,20 +18,31 @@
 
 
 	<script>
-		window.onload=function() {
-			var iframe = document.createElement('iframe');
-			var html = document.querySelector("#template").innerHTML.replace(/&lt;/g, '<');
-			iframe.style.visibility = "hidden";
-			iframe.style.width = "1px";
-			iframe.style.height = "1px";
-			iframe.style.position = "absolute";
-			iframe.style.top = "0";
-			iframe.style.left = "0";
-			document.body.appendChild(iframe);
-			iframe.contentWindow.document.open();
-			iframe.contentWindow.document.write(html);
-			iframe.contentWindow.document.close();
-		}
+		(function() {
+
+			function initIFrame(){
+				var iframe = document.createElement('iframe');
+				var html = document.querySelector("#template").innerHTML.replace(/&lt;/g, '<');
+				iframe.style.visibility = "hidden";
+				iframe.style.width = "1px";
+				iframe.style.height = "1px";
+				iframe.style.position = "absolute";
+				iframe.style.top = "0";
+				iframe.style.left = "0";
+				document.body.appendChild(iframe);
+				iframe.contentWindow.document.open();
+				iframe.contentWindow.document.write(html);
+				iframe.contentWindow.document.close();
+			}
+
+			window.onload = (function(pre){
+				return function(){
+					pre && pre.apply(this,arguments);
+					initIFrame();
+				};
+			})(window.onload);
+
+		})();
 	</script>
 </head>
 <body>
