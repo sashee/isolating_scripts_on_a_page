@@ -1,6 +1,6 @@
 # isolating_scripts_on_a_page
 
-This is a demonstration project for a blog post.
+This is a demonstration project for a blog post: [https://advancedweb.hu/2015/08/04/isolating_scripts_on_a_page/](https://advancedweb.hu/2015/08/04/isolating_scripts_on_a_page/)
 
 For a live demo, click [here](http://sashee.github.io/isolating_scripts_on_a_page/)
 
